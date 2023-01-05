@@ -8,6 +8,7 @@ is using a thread for each file to count its lines and then sum it all up.
 is using the ExecutorService of a fixed thread pool. Which means, it creates a fixed number of
 threads, and when a task is submitted to the pool, it assigns a thread to work on it.
 
+# Time Analysis
 After running main creating 1000 files and comparing the time it takes for each method to count the lines. 
 The results are getNumOfLines is the slowest method, while the threads and threadPool methods
 are way faster. The reason for this is because the threads calculate the
