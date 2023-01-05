@@ -3,7 +3,7 @@ In this exercise we count the total number of lines in n files, using 3 methods.
 # getNumOfLines
 is simple counting in for loop one file after another.
 # getNumOfLinesThreads
-is using a thread for each file to count its lines and then sum it all up.
+is creating a new thread for each file to count its lines and then sum it all up.
 # getNumOfLinesThreadPool
 is using the ExecutorService of a fixed thread pool. Which means, it creates a fixed number of
 threads, and when a task is submitted to the pool, it assigns a thread to work on it.
