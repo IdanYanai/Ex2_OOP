@@ -1,3 +1,5 @@
+package Ex2_A;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +17,7 @@ public class Ex2_1 {
      * @param args arguments
      */
     public static void main(String[] args) {
-        String[] names = createTextFiles(100, 2, 1000);
+        String[] names = createTextFiles(1000, 2, 1000);
 
         long start = System.currentTimeMillis();
         int noThreads = getNumOfLines(names);
@@ -49,7 +51,7 @@ public class Ex2_1 {
         ExecutorService pool = Executors.newFixedThreadPool(fileNames.length);
         List<Future<Integer>> futures = new ArrayList<>();
         for (String fileName : fileNames)
-            futures.add(pool.submit(new task(fileName)));
+            futures.add(pool.submit(new threadPoolRead(fileName)));
         try {
             for (Future<Integer> f : futures)
                 lines += f.get();

@@ -1,35 +1,44 @@
+package Ex2_A;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.concurrent.Callable;
 
 /**
- * Simple class that implements Callable to count a single file's number of lines.
+ * Class that extends Thread to count a single file's number of lines.
  */
-public class task implements Callable {
+public class threadReader extends Thread{
     private final String fName;
+    private int lines;
 
     /**
-     * Constructor
-     * @param fName the file name to read.
+     * Constructor.
+     * @param fName file name to read.
      */
-    public task(String fName) {
+    public threadReader(String fName) {
+        super();
         this.fName = fName;
+        this.lines = 0;
     }
 
     /**
      * Simple line counter taken from Ex2_1.java getNumOfLines.
-     * @return the number of lines.
      */
     @Override
-    public Object call() {
-        int lines = 0;
+    public void run() {
         try (BufferedReader r = new BufferedReader(new FileReader(fName))) {
             while (r.readLine() != null)
                 lines++;
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Get counted lines.
+     * @return num of lines in the file.
+     */
+    public int getLines() {
         return lines;
     }
 }
