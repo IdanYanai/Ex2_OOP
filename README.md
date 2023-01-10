@@ -1,4 +1,4 @@
-# Ex2_OOP
+# EX2_A (README only relevent for first half A)
 In this exercise we count the total number of lines in n files, using 3 methods. 
 # getNumOfLines
 is simple counting in for loop one file after another.
